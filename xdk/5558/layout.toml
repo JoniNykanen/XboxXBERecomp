@@ -1,10 +1,12 @@
-# XDK 5558 library data layouts the runtime reads or writes. Each value is proven by this
-# title's default.xbe (The Sims: Bustin' Out, USA) code at the 5558 address given, read from
-# out/game.exe (xbe2pe.py flat PE, guest addresses 1:1) after xbe_symbols named the D3D
-# functions by .XTLID and constants. Every offset below matched the 5849 value it was checked
-# against except where a line says UNPROVEN: there the 5849 value is kept and flagged, not
-# silently copied. Device below is the static device D3D__pDevice (0x264948) points at
-# (D3D_Device 0x264950 in config/game.toml).
+# XDK 5558 library data layouts the runtime reads or writes. Each value is proven by the code of
+# The Sims: Bustin' Out (USA release, abilliontokens bustinout-port 7f2e294) at the 5558 address
+# given, read from out/game.exe (xbe2pe.py flat PE, guest addresses 1:1) after xbe_symbols named
+# the D3D functions by .XTLID and constants, and re-checked on the Europe release (45410043),
+# which the signatures.toml beside this file is signed from. Addresses below are the USA image's;
+# in the Europe image the D3D and .rdata sections sit +0xA0 higher (D3D__pDevice 0x2649E8,
+# D3D_Device 0x2649F0). Every offset below matched the 5849 value it was checked against except
+# where a line says UNPROVEN: there the 5849 value is kept and flagged, not silently copied.
+# Device below is the static device D3D__pDevice (USA 0x264948) points at (D3D_Device 0x264950).
 [layout]
 # D3D8 CDevice, the static device D3D__pDevice points at
 CDevice_Push          = 0x0     # D3DDevice_SetTexture 0x2471C0 writes push commands through [device], D3DDevice_SetIndices 0x247430 likewise
